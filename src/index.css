@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+@font-face {
+  font-family: glacialIndifference;
+  src: url(./assets/glacial-indifference.bold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: glacialIndifference;
+  src: url(./assets/glacial-indifference.regular.otf);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: glacialIndifference;
+  }
+}
