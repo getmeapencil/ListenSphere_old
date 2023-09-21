@@ -46,7 +46,9 @@ function Edit() {
     return (
       <div className='max-w-screen-xl h-screen flex flex-col items-center mb-20'>
         <h1 className='text-4xl pt-4 pb-2 font-["League_Spartan"]'>ListenSphere</h1>
-        <BiSolidUser className='text-nav-yellow bg-black w-8 h-8 p-1 rounded-full'/>
+        <div>
+        <BiSolidUser className='text-nav-yellow bg-black p-1 rounded-full text-4xl'/>
+        </div>
         <Form/>
       </div>
     )
