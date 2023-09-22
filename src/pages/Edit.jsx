@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { BiSolidUser } from 'react-icons/bi';
 import { useState } from 'react';
 
@@ -37,18 +38,16 @@ function Form() {
         <FormInput label="Twitter" type="text" name="twitter" inputs={inputs} handleChange={handleChange}/>
         <FormInput label="Bio" type="text" name="bio" inputs={inputs} handleChange={handleChange} bio={true}/>
       </div>
-      <input type="submit" value="Save" className='translate-y-8 bg-button-green hover:bg-button-green-dark px-[1rem] py-[0.5rem] border-4 border-black rounded-full font-bold'/>
+      <input type="submit" value="Save" className='translate-y-8 bg-button-green hover:bg-button-green-dark px-[1rem] py-[0.5rem] border-4 border-black rounded-full font-bold text-lg'/>
     </form>
   )
 }
 
 function Edit() {
     return (
-      <div className='max-w-screen-xl h-screen flex flex-col items-center mb-20'>
+      <div className='max-w-screen-xl flex flex-col items-center mb-40'>
         <h1 className='text-4xl pt-4 pb-2 font-["League_Spartan"]'>ListenSphere</h1>
-        <div>
         <BiSolidUser className='text-nav-yellow bg-black p-1 rounded-full text-4xl'/>
-        </div>
         <Form/>
       </div>
     )
