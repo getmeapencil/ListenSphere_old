@@ -36,9 +36,9 @@ function EditButton() {
 }
 
 
-function ProfileCard({tab="review"}) {
+function ProfileCard({tab="userProfile"}) {
 
-  let socials = false, reactions = false, editButton = false, cardBg = "bg-card-yellow";
+  let socials = false, reactions = false, editButton = false, cardBg = "bg-card-yellow", cardPb = "pb-7";
 
   if (tab === "userProfile") {
     socials = true;
@@ -48,10 +48,11 @@ function ProfileCard({tab="review"}) {
     reactions = true;
   } else if (tab === "connect") {
     socials = true;
+    cardPb = "pb-2";
   }
 
   return (
-    <div className={`flex flex-wrap justify-center gap-2 p-2 m-4 ${cardBg} border-4 border-black rounded-xl relative pb-7`}>
+    <div className={`flex flex-wrap justify-center gap-2 p-2 m-4 ${cardPb} ${cardBg} border-4 border-black rounded-xl relative`}>
         <div className="flex justify-center items-center">
             <img alt="Remy Sharp" src="/src/assets/avatar (1).png" className='w-28 h-28 border-4 border-black rounded-full'/>
         </div>
