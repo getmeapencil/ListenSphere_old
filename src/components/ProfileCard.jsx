@@ -1,0 +1,80 @@
+import { FaInstagram } from 'react-icons/fa6';
+import { FaXTwitter } from 'react-icons/fa6';
+import { AiOutlineClose } from 'react-icons/ai';
+import { BiSolidLike } from 'react-icons/bi';
+import { BiSolidPencil } from 'react-icons/bi';
+
+function Socials() {
+    return (
+        <div className='flex flex-wrap gap-2'>
+            <a href="" className='flex items-center gap-2'>
+                <FaInstagram className='text-white  bg-black p-1 text-2xl rounded-lg'/>
+                insta_id
+            </a>
+            <a href="" className='flex items-center gap-2'>
+                <FaXTwitter className='text-white bg-black p-1 text-2xl rounded-lg'/>
+                twitter_id
+            </a>
+        </div>
+    )
+}
+
+function Reactions() {
+    return (
+        <div className='flex gap-32 md:gap-44 absolute -bottom-5'>
+            <button><AiOutlineClose className='text-white hover:text-cross-red bg-black text-4xl p-1 rounded-full'/></button>
+            <button><BiSolidLike className='text-white hover:text-like-blue bg-black text-4xl p-1 rounded-full'/></button>
+        </div>
+    )
+}
+function EditButton() {
+    return (
+        <div className='flex gap-32 md:gap-44 absolute -bottom-4 right-5'>
+            <button><BiSolidPencil className='text-white hover:text-nav-yellow bg-black text-3xl p-1 rounded-full'/></button>
+        </div>
+    )
+}
+
+
+function ProfileCard({tab="review"}) {
+
+  let socials = false, reactions = false, editButton = false, cardBg = "bg-card-yellow";
+
+  if (tab === "userProfile") {
+    socials = true;
+    editButton = true;
+    cardBg = "bg-gradient-to-r from-card-grad-l to-card-grad-r";
+  } else if (tab === "search" || tab === "review") {
+    reactions = true;
+  } else if (tab === "connect") {
+    socials = true;
+  }
+
+  return (
+    <div className={`flex flex-wrap justify-center gap-2 p-2 m-4 ${cardBg} border-4 border-black rounded-xl relative pb-7`}>
+        <div className="flex justify-center items-center">
+            <img alt="Remy Sharp" src="/src/assets/avatar (1).png" className='w-28 h-28 border-4 border-black rounded-full'/>
+        </div>
+        <div className="flex flex-col items-center sm:items-start gap-2">
+            <h1 className='font-bold'>Tom Holland | 72%</h1>
+            <p className='bg-white p-1 rounded-lg'>
+                🌟 Exploring Life&apos;s Beauty, One Adventure at a Time 🌍✈️ <br />
+                📸 Capturing Moments | 🌄 Nature Lover | 🎵 Music Enthusiast <br />
+                📚 Learning, Growing, & Inspiring Along the Way 🌱✨ <br />
+                📍 India<br />
+            </p>
+            {
+                socials===true && <Socials />
+            }
+        </div>
+        {
+            reactions===true && <Reactions />
+        }
+        {
+            editButton===true && <EditButton />
+        }
+    </div>
+  )
+}
+
+export default ProfileCard;
