@@ -7,13 +7,21 @@ import { BiSolidPencil } from 'react-icons/bi';
 function Socials() {
     return (
         <div className='flex flex-wrap gap-2'>
-            <a href="" className='flex items-center gap-2'>
-                <FaInstagram className='text-white  bg-black p-1 text-2xl rounded-lg'/>
-                insta_id
+            <a href="" className='flex items-center gap-1 p-1 border-2 border-black bg-button-green hover:bg-button-green-dark rounded-lg break-all'>
+                <div>
+                   <FaInstagram className='text-white  bg-black p-1 text-2xl rounded-lg block'/> 
+                </div>
+                <p>
+                    insta_id
+                </p>
             </a>
-            <a href="" className='flex items-center gap-2'>
-                <FaXTwitter className='text-white bg-black p-1 text-2xl rounded-lg'/>
-                twitter_id
+            <a href="" className='flex items-center gap-1 p-1 border-2 border-black bg-button-green hover:bg-button-green-dark rounded-lg'>
+                <div>
+                   <FaXTwitter className='text-white  bg-black p-1 text-2xl rounded-lg block'/> 
+                </div>
+                <p>
+                    twitter_id
+                </p>
             </a>
         </div>
     )
@@ -58,7 +66,7 @@ function ProfileCard({tab="userProfile"}) {
         </div>
         <div className="flex flex-col items-center sm:items-start gap-2">
             <h1 className='font-bold'>Tom Holland | 72%</h1>
-            <p className='bg-white p-1 rounded-lg'>
+            <p className='w-full bg-white p-1 rounded-lg'>
                 🌟 Exploring Life&apos;s Beauty, One Adventure at a Time 🌍✈️ <br />
                 📸 Capturing Moments | 🌄 Nature Lover | 🎵 Music Enthusiast <br />
                 📚 Learning, Growing, & Inspiring Along the Way 🌱✨ <br />
