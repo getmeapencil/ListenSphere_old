@@ -60,7 +60,7 @@ function ProfileCard({tab="userProfile"}) {
   }
 
   return (
-    <div className={`flex flex-wrap justify-center gap-2 p-2 m-4 ${cardPb} ${cardBg} border-4 border-black rounded-xl relative`}>
+    <div className={`flex flex-wrap justify-center gap-2 p-2 max-w-[95vw] my-4 ${cardPb} ${cardBg} border-4 border-black rounded-xl relative`}>
         <div className="flex justify-center items-center">
             <img alt="Remy Sharp" src="/src/assets/avatar (1).png" className='w-28 h-28 border-4 border-black rounded-full'/>
         </div>
