@@ -17,7 +17,10 @@ export default {
         "like-blue": "#5CE1E6",
         "card-grad-l": "#FFF7AD",
         "card-grad-r": "#FFA9F9"
-      }
+      },
+      screens: {
+        '4k': '2560px',
+      },
     },
   },
   plugins: [],
