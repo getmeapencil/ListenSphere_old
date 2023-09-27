@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FaInstagram } from 'react-icons/fa6';
 import { FaXTwitter } from 'react-icons/fa6';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -38,7 +39,7 @@ function Reactions() {
 function EditButton() {
     return (
         <div className='flex gap-32 md:gap-44 absolute -bottom-4 right-5'>
-            <button><BiSolidPencil className='text-white hover:text-nav-yellow bg-black text-3xl p-1 rounded-full'/></button>
+            <Link to="/edit-profile"><BiSolidPencil className='text-white hover:text-nav-yellow bg-black text-3xl p-1 rounded-full'/></Link>
         </div>
     )
 }
@@ -60,7 +61,7 @@ function ProfileCard({tab="userProfile"}) {
   }
 
   return (
-    <div className={`flex flex-wrap justify-center gap-2 p-2 w-[90vw] sm:max-w-fit my-4 ${cardPb} ${cardBg} border-4 border-black rounded-xl relative`}>
+    <div className={`flex flex-wrap justify-center gap-2 p-2 w-[90vw] sm:max-w-[38rem] mb-6 ${cardPb} ${cardBg} border-4 border-black rounded-xl relative`}>
         <div className="flex justify-center items-center">
             <img alt="Remy Sharp" src="/src/assets/avatar (1).png" className='w-28 h-28 border-4 border-black rounded-full'/>
         </div>

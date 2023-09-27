@@ -37,7 +37,7 @@ function LikesTabs() {
 
     return (
         <div className="w-full flex flex-col items-center p-4 pt-0">
-            <div className="flex flex-col items-center sticky top-[3.25rem] z-10 bg-white">
+            <div className="flex flex-col items-center sticky top-[4.25rem] z-10 bg-white mb-4">
                 <hr className="w-[98vw] h-1 bg-black"/>
                 <div className="flex">
                     <button onClick={() => handleClick("review")} className={`p-2 hover:bg-nav-yellow ${tab === "review" ? 'bg-nav-yellow' : ''}`}>
