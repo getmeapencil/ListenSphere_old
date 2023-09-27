@@ -2,9 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Edit from "./pages/Edit";
 import ProfileCard from "./components/ProfileCard";
-import './App.css'
 import SongCard from "./components/SongCard";
 import Navigation from "./components/Navigation";
+import Search from "./pages/Search";
+import './App.css'
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/profile-card" element={<ProfileCard />} />
         <Route path="/song-card" element={<SongCard />} />
         <Route path="/navigation" element={<Navigation />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </BrowserRouter>
   )
