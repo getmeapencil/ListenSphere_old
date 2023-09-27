@@ -5,6 +5,7 @@ import ProfileCard from "./components/ProfileCard";
 import SongCard from "./components/SongCard";
 import Navigation from "./components/Navigation";
 import Search from "./pages/Search";
+import Likes from "./pages/Likes";
 import './App.css'
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/song-card" element={<SongCard />} />
         <Route path="/navigation" element={<Navigation />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/likes" element={<Likes />} />
       </Routes>
     </BrowserRouter>
   )
