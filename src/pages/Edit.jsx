@@ -5,6 +5,8 @@ import AuthContext from "../components/authContext";
 import { useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userActions } from "../store/slice/user";
 function FormInput({ label, type, name, inputs, handleChange, bio = false }) {
   return (
     <>
@@ -39,6 +41,7 @@ function FormInput({ label, type, name, inputs, handleChange, bio = false }) {
 function Form() {
   const [inputs, setInputs] = useState({});
   const { token } = useContext(AuthContext);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (event) => {
     const name = event.target.name;
@@ -53,7 +56,7 @@ function Form() {
     }
 
     let updateUser= async ()=>{
-      await axios({
+      return await axios({
         method: "post",
         url: "http://localhost:8888/user",
         data: inputs,
@@ -64,8 +67,9 @@ function Form() {
       });
     }
 
-    await updateUser();
-   
+    const updatedUser=await updateUser();
+    let formedData= updatedUser?.data?.data;
+    dispatch(userActions.updateUser(formedData));
     navigate("/profile");
   };
   return (
