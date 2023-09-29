@@ -19,7 +19,7 @@ function FormInput({label, type, name, inputs, handleChange, bio=false}) {
 
 function Form() {
   const [inputs, setInputs] = useState({});
-
+  console.log(inputs);
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
