@@ -1,8 +1,8 @@
-function SongCard({track}) {
+function SongCard({track,index}) {
     return (
         <div className="flex items-center max-w-[95vw] my-4 bg-card-grey border-4 border-black rounded-lg">
             <p className="px-4 font-bold">
-                1
+                {index+1}
             </p>
             <img src={track.image} alt="Inside Cover" className="w-16 h-16 md:w-24 md:h-24 object-cover"/>
             <div className="flex flex-col m-2 md:m-4 gap-1 md:gap-3 truncate">

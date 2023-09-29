@@ -40,7 +40,7 @@ function Profile() {
         </div>
         <div>
           {tracks.map((track, index) => {
-            return <SongCard key={index} track={track}></SongCard>;
+            return <SongCard key={index} index={index} track={track}></SongCard>;
           })}
         </div>
       </div>
