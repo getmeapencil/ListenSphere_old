@@ -80,7 +80,7 @@ function ProfileCard({ tab = "userProfile", data }) {
       <div className="flex justify-center items-center w-[50%] ">
         <img
           alt="Remy Sharp"
-          src="/src/assets/avatar (1).png"
+          src={data?.pic || "/src/assets/avatar (1).png"}
           className="w-28 h-28 border-4 border-black rounded-full"
         />
       </div>
