@@ -1,8 +1,30 @@
+import { useContext, useEffect, useState } from "react";
 import Navigation from "../components/Navigation"
 import ProfileCard from "../components/ProfileCard"
 import SongCard from "../components/SongCard"
+import AuthContext from "../components/authContext";
+import { useNavigate } from "react-router";
+import axios from "axios";
 
 function Profile() {
+    const {token}= useContext(AuthContext);
+    const navigate = useNavigate();
+    const [tracks,setTracks]= useState([])
+
+    useEffect(()=>{
+        if(!token){
+            navigate("/")
+        }
+        try{
+            goGet5TopTracks(token).then((data)=>{
+                setTracks(data)
+            })
+        }catch(error){
+            console.log(error)
+        }
+    },[])
+
+
     return (
         <div className="w-full flex flex-col items-center p-4 pt-0">
             <Navigation page="profile"></Navigation>
@@ -12,18 +34,11 @@ function Profile() {
                     Top Tracks
                 </div>
                 <div>
-                    <SongCard index="20"></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
-                    <SongCard></SongCard>
+                    {
+                        tracks.map((track,index)=>{
+                            return <SongCard key={index} track={track}></SongCard>
+                        })
+                    }
                 </div>
             </div>
         </div>
@@ -31,3 +46,16 @@ function Profile() {
 }
   
 export default Profile
+
+
+async function goGet5TopTracks(token){
+    let config={
+        method:"GET",
+        headers:{
+            "Authorization":"Bearer "+token
+        }
+    }
+    // use axios to get top tracks
+    let response = await axios.get("http://localhost:8888/user/topTracks",config)
+    return response.data
+}
