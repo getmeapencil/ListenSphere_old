@@ -33,10 +33,10 @@ function App() {
   //   if token found then render profile page
 
   return (
-    <div className=" flex flex-col justify-center items-center overflow-y-hidden p-0">
+    <div className=" flex flex-col justify-center items-center overflow-y-hidden p-0 h-[100vh]">
       <main className="flex flex-col justify-center items-center flex-grow">
-        <h1 className='text-7xl font-["League_Spartan"]'>ListenSphere</h1>
-        <p className="text-2xl">Connect with people who listen like you</p>
+        <h1 className='text-5xl sm:text-7xl font-["League_Spartan"]'>ListenSphere</h1>
+        <p className="text-md sm:text-2xl">Connect with people who listen like you</p>
         {!token && (
           <a
             href={`http://localhost:8888/login`}
