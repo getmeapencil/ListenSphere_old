@@ -24,10 +24,18 @@ function App() {
     if (hashParams.access_token && hashParams.refresh_token) {
       // Set the tokens in state or wherever you need them
       login(hashParams.access_token);
+      console.log(hashParams.user_exist);
       // Clear the URL fragments to avoid showing sensitive information
       window.history.pushState({}, document.title, window.location.pathname);
-      // Navigate to the home page
-      navigate("/profile");
+      if(hashParams.error){
+        navigate("/login");
+      }
+
+      if (hashParams.user_exist === "false") {
+        navigate("/edit-profile");
+      } else {
+        navigate("/profile");
+      }
     }
   }, []); // Run this effect only once when the component mounts
   //   if token found then render profile page
@@ -35,8 +43,12 @@ function App() {
   return (
     <div className=" flex flex-col justify-center items-center overflow-y-hidden p-0 h-[100vh]">
       <main className="flex flex-col justify-center items-center flex-grow">
-        <h1 className='text-5xl sm:text-7xl font-["League_Spartan"]'>ListenSphere</h1>
-        <p className="text-md sm:text-2xl">Connect with people who listen like you</p>
+        <h1 className='text-5xl sm:text-7xl font-["League_Spartan"]'>
+          ListenSphere
+        </h1>
+        <p className="text-md sm:text-2xl">
+          Connect with people who listen like you
+        </p>
         {!token && (
           <a
             href={`http://localhost:8888/login`}
