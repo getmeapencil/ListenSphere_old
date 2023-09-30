@@ -9,6 +9,12 @@ function SongCard({track,index}) {
                 <p className="font-bold truncate">{track.name}</p>
                 <p className="text-sm truncate">{track.artist}</p>
             </div>
+            <div className="justify-self-end">
+               <audio controls className="w-24 md:w-32 ">
+                    <source src={track.preview} type="audio/mpeg"/>
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
         </div>
     )
 }
