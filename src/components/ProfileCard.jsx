@@ -77,14 +77,14 @@ function ProfileCard({ tab = "userProfile", data }) {
     <div
       className={`flex flex-wrap  gap-2 p-2 w-[90vw] sm:max-w-[38rem] mb-6 ${cardPb} ${cardBg} border-4 border-black rounded-xl relative`}
     >
-      <div className="flex justify-center items-center w-[50%] ">
+      <div className="flex justify-center items-center w-full sm:w-fit ">
         <img
-          alt="Remy Sharp"
+          alt="profile pic"
           src={data?.pic || "/src/assets/avatar (1).png"}
           className="w-28 h-28 border-4 border-black rounded-full"
         />
       </div>
-      <div className="flex flex-col items-center sm:items-start gap-2">
+      <div className="flex flex-col flex-grow items-center sm:items-start gap-2">
         <h1 className="font-bold">{data?.name}</h1>
         <p className="w-full bg-white p-1 rounded-lg">{data?.bio}</p>
         {socials === true && (
