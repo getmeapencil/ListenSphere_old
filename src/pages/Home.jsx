@@ -6,9 +6,6 @@ function App() {
   const { token, login, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const {user}= useSelector((state)=>state.user);
-  console.log(user);
-  console.log(token);
   useEffect(() => {
     // Function to parse URL fragments
     const getHashParams = () => {

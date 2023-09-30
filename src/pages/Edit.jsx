@@ -7,8 +7,9 @@ import AuthContext from "../components/authContext";
 import { useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../store/slice/user";
+import { useEffect } from "react";
 
 function FormInput({ label, type, name, inputs, handleChange, bio = false }) {
   return (
@@ -42,6 +43,8 @@ function FormInput({ label, type, name, inputs, handleChange, bio = false }) {
 }
 
 function Form() {
+
+  const {user}=useSelector((state)=>state.user);  
   const [inputs, setInputs] = useState({});
   const [imageBase64, setImageBase64] = useState('');
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
@@ -60,6 +63,19 @@ function Form() {
       }
     },
   });
+
+  console.log(user);
+  useEffect(() => {
+    if(user){
+      setInputs({
+        username: user?.name,
+        instagram: user?.socials?.instagram,
+        twitter: user?.socials?.twitter,
+        bio: user?.bio,
+        pic: user?.pic,
+      });
+    }
+  }, [user]);
 
   const { token } = useContext(AuthContext);
   const dispatch = useDispatch();
@@ -106,7 +122,7 @@ function Form() {
     <form onSubmit={handleSubmit} className="translate-y-16 flex flex-col items-center w-[90vw] sm:max-w-xl border-4 border-black px-4 pt-4 pb-2 rounded-2xl bg-gradient-to-r from-card-grad-l to-card-grad-r "> 
       <img
         alt="profile pic"
-        src={imageBase64 || '/src/assets/avatar (1).png'} // Display the uploaded image or a default one
+        src={inputs?.pic||imageBase64 || '/src/assets/avatar (1).png'} // Display the uploaded image or a default one
         className="absolute -translate-y-20 mt-2 w-28 h-28 border-4 border-black rounded-full"
       />
       <div {...getRootProps({ className: "dropzone absolute -translate-y-20 mt-2 w-28 h-28 border-4 border-black rounded-full" })}>
