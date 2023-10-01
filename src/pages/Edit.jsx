@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { BiSolidUser } from 'react-icons/bi';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 function FormInput({label, type, name, inputs, handleChange, bio=false}) {
   return (
@@ -19,7 +20,7 @@ function FormInput({label, type, name, inputs, handleChange, bio=false}) {
 
 function Form() {
   const [inputs, setInputs] = useState({});
-
+  const navigate=useNavigate();
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -27,7 +28,7 @@ function Form() {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(JSON.stringify(inputs));
+    navigate('/profile');
   }
   return (
     <form onSubmit={handleSubmit} className="translate-y-16 flex flex-col items-center w-[90vw] sm:max-w-xl border-4 border-black px-4 pt-4 pb-2 rounded-2xl bg-gradient-to-r from-card-grad-l to-card-grad-r "> 
